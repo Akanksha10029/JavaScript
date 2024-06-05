@@ -6,5 +6,42 @@ let anyNumber = 29
 let anyBoolean = true
 let anyNullvalue = null
 let anyUndefined = undefined
+let useEmail;
+
+const id= Symbol("123")
+const anotherId = Symbol("123")
+console.log(id===anotherId);
+
+//Although id and anotherId are having same values but because of symbol datatype it is treating it as unique values, that's why on checking for equality it is giving false.
+
+const bigNumber = 12345678900987654n
+console.log(typeof bigNumber)
+
+
 
 //2. Non- Primitive (Reference type) --> Array, Objects, functions
+
+//Array
+const students = ["Akanksha, Prashant, Keshav, Ankit"] 
+
+//object
+let myObj = {
+    name: "Akanksha Rani",
+    age:20,
+    UID: "22CBS10029"
+}
+
+//Functions
+function myfunc(myObj){
+    myObj.make = "Dosa"
+}
+const myDish ={
+    make: "Idli",
+    year:2024
+}
+
+console.log(myDish.make);
+myfunc(myDish)
+console.log(myDish.make);
+
+console.log(typeof myfunc);

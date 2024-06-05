@@ -52,13 +52,13 @@
 
 // Increment(++) operator ->
 
-// let x=4
-// let y=x++
-// console.log(`x:${x}, y:${y}`); // x:5, y:4
+let x=4
+let y=x++
+console.log(`x:${x}, y:${y}`); // x:5, y:4
 
-// let a=7
-// let b=++a
-// console.log(`a is ${a} and b is ${b}`); // a is 8 and b is 8
+let a=7
+let b=++a
+console.log(`a is ${a} and b is ${b}`); // a is 8 and b is 8
 
 
 

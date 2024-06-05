@@ -45,3 +45,24 @@ myfunc(myDish)
 console.log(myDish.make);
 
 console.log(typeof myfunc);
+
+//++++++++++++++++++++++++++++++++++++++++
+
+// Memory ->stack(Primitive)[In stack we get copy so, original value do not change] and Heap(Non Primitive)[In heap we get reference so, original value also get change]
+
+let myname = "Akanksha"
+let anotherName = myname
+anotherName = "beauty"
+console.log(anotherName);
+console.log(myname);
+
+let userone ={
+    email: "lalalala@google.com",
+    upi: "userone1233@sbi"
+}
+
+let usertwo = userone
+
+usertwo.email = "buuuuuu@google.com"
+console.log(userone.email);
+console.log(usertwo.email);

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Learning</title>
+    <style>
+        .bg-black {
+            background-color: #212121;
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body class="bg-black">
+    <div class="top-head">
+        <h1 id="title" class="heading">DOM learning on Akanksha's Website <span style="display: none;">I am
+                hidden</span></h1>
+        <button id="btn">click</button>
+        <p class="para">Lorem ipsum dolor sit amet.</p>
+    </div>
+    <div class="lists">
+        <ul class="ul1">
+            <li class="liclass1">one</li>
+            <li class="liclass1">Two</li>
+            <li class="liclass1">Three</li>
+            <li class="liclass1">four</li>
+        </ul>
+    </div>
+    <div class="lists2">
+        <ul class="ul2">
+            <li class="liclass2">one</li>
+            <li class="liclass2">Two</li>
+            <li class="liclass2">Three</li>
+            <li class="liclass2">four</li>
+        </ul>
+    </div>
+
+    <script>
+        const qsTophead = document.querySelector(".top-head")
+
+        const ul1 = document.querySelector(".lists")
+        const liList = ul1.querySelectorAll("li")
+        liList.forEach((l) => {
+            l.style.padding = "5px";
+            l.style.color = "pink"
+        })
+
+        const liList2 = document.querySelectorAll(".liclass2")
+        liList2.forEach((l) => {
+            let s = l.style;
+            s.padding = "5px"
+            s.color = "orange";
+            s.border = "2px solid pink";
+            s.borderRadius = "20px";
+            s.display = "flex";
+            s.justifyContent = "center";
+            s.margin = "15px"
+            s.padding = "10px"
+            s.fontWeight = "900"
+            s.fontFamily = "verdana"
+
+        })
+
+        document.querySelector("#btn").addEventListener("click", function clk() {
+            document.querySelector(".para").innerHTML = "ullu";
+        })
+    </script>
+</body>
+
+</html>

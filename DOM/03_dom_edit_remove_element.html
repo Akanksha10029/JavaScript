@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit and Remove Elements</title>
+</head>
+<body style="background-color: #212121; color: #fff;" >
+    <ul class="language">
+        <li>JavaScript</li>
+    </ul>
+</body>
+<script>
+    function addLang(langName) {
+        const li = document.createElement('li')
+        li.innerHTML = `${langName}`
+        document.querySelector('.language').appendChild(li)
+    }
+    addLang('Python')
+    addLang('Java')
+    // This function will check everything from starting i.e by using innerHTML it will traverse whole tree of whole list values, so, it's time consuming for large list elements
+
+    // other optimized solution/approach is----->
+    function addOptLang(langName) {
+        const li = document.createElement("li")
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li)
+    }
+    addOptLang('C++')
+    addOptLang('Ruby')
+
+    //Edit-------->
+    const thirdLang = document.querySelector("li:nth-child(3)")
+    // thirdLang.innerHTML = "React Edited"
+
+    // thirdLang.textContent = "React Edited" // this can also be used
+
+    //And this method can also be used
+    const newLi = document.createElement("li")
+    newLi.appendChild(document.createTextNode("React Edited"))
+    document.querySelector('.language').replaceChild(newLi, thirdLang)
+
+    //Edit 2------->
+    const fourthLang = document.querySelector("li:nth-child(4)")
+
+    const newLi2 = document.createElement("li")
+
+    newLi2.appendChild(document.createTextNode("Angular Edited"))
+
+    document.querySelector(".language").replaceChild(newLi2,fourthLang)
+
+
+    //Remove----->
+    const fifthLang = document.querySelector("li:nth-child(5)")
+    fifthLang.remove()
+
+</script>
+</html>

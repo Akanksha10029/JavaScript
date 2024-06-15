@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Element creation in DOM</title>
+</head>
+<body style="background-color: #212121; color: #fff">
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+    
+</body>
+<script>
+    const parent = document.querySelector(".parent")
+    console.log(parent);
+    console.log(parent.children);
+    console.log(parent.children[3].innerHTML);
+
+    const pc = parent.children
+    console.log(pc);
+
+    for (let i = 0; i < pc.length; i++) {
+        console.log(pc[i].innerHTML);
+    }
+
+    for(let i =0; i<=pc.length;i++){
+        pc[i].style.color = "orange"
+
+    }
+    
+    // pc.style.color = "orange"
+
+    console.log(parent.firstElementChild.innerText)
+    console.log(parent.lastElementChild.innerHTML)
+
+    const dayOne = document.querySelector(".day")
+    console.log(dayOne);
+    console.log(dayOne.parentElement);
+    console.log(dayOne.nextElementSibling);
+    console.log("nodes:",parent.childNodes);
+    
+</script>
+</html>

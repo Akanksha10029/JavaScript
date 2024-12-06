@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Images</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="ocean" src="https://images.pexels.com/photos/11898887/pexels-photo-11898887.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="ocean"></li>
+            <li><img width="200px" id="stream" src="https://images.pexels.com/photos/27240601/pexels-photo-27240601/free-photo-of-a-stream-flowing-through-a-rocky-mountain.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="flowing stream"></li>
+            <li><img width="200px" id="mountainRailway" src="https://images.pexels.com/photos/1658967/pexels-photo-1658967.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="mountain railway"></li>
+            <li><a style="color: aliceblue;" href="https://www.google.com/" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+    // document.getElementById('ocean').onclick = function(){
+    //     alert('You clicked on ocean image');
+    // }
+
+    //What we have to study in this event object:
+    // type, timestamp, defaultPrevented, target, toElement, srcElement, currentTarget, clientX ,clientY, screenX, screenY,altkey, ctrlKey,shiftKey, keyCode
+
+
+    //best approach--->
+    // document.getElementById('images').addEventListener('click',function(e){
+    //     console.log('clicked inside ul');    
+    // },false)//false is the default value = for bubling phase/event bubbling
+
+    // document.getElementById('ocean').addEventListener('click',function(e){
+    //     console.log('clicked on ocean image');
+    //     //when we don't want the event to bubble up to the parent element then we use stopPropagation()
+    //     e.stopPropagation();    
+    // },false)
+
+    // document.getElementById('google').addEventListener('click',function(e){
+    //     e.preventDefault();
+    //     console.log('google clicked');
+    //     e.stopImmediatePropagation(); //to stop the event from bubbling up to the parent element
+    // },false)
+
+    //true/false use case-->
+    // true: according to the bubbling phase(by default = false), the event will be triggered from the innermost element to the outermost element
+    // false: according to the capturing phase, the event will be triggered from the outermost element to the innermost element
+
+    document.getElementById('images').addEventListener('click',function(e){
+        console.log(e.target.tagName);
+        if(e.target.tagName === 'IMG'){
+            console.log(`clicked on ${e.target.id}`);
+            let removeIt = e.target.parentNode
+            removeIt.parentNode.removeChild(removeIt);
+        }
+        
+
+        // console.log(e.target.parentNode); //target: to get the target element i.e from where we got the data
+        // let removeIt = e.target.parentNode
+        // // removeIt.remove();
+        // removeIt.parentNode.removeChild(removeIt);
+    })
+</script>
+</html>

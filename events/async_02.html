@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async</title>
+</head>
+<body>
+    <h1>Async practice 2</h1>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+</body>
+<script>
+    let intervalId;
+    const start = document.querySelector('#start').addEventListener('click',()=>{
+        console.log('start button clicked');
+        // Start the interval if it's not already running
+        if(!intervalId){
+            intervalId = setInterval(()=>{
+                const date = new Date();
+                console.log(`Akanksha is Active at: hr-${date.getHours()} min-${date.getMinutes()} sec-${date.getSeconds()}`);    
+            },2000)
+        }
+        
+    });
+    const stop = document.querySelector('#stop').addEventListener('click',()=>{
+        console.log('stop button clicked');
+        // Clear the interval if it is running
+        if(intervalId){
+            clearInterval(intervalId)
+            intervalId = null; //Reset the intervalId
+        }
+    });
+</script>
+</html>

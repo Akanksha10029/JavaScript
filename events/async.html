@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async</title>
+</head>
+<body>
+    <h1>Async practice</h1>
+    <button id="stop">stop</button>
+</body>
+<script>
+    const settimeout = (func)=>{
+        console.log('setTimeout after 2s');
+    }
+    setTimeout(settimeout,2000)
+
+    const changeText = ()=>{
+        document.querySelector('h1').innerHTML = 'Hello I am async';
+    }
+    const changeMe = setTimeout(changeText,3000)
+
+    // clearTimeout(changeMe)// clearTimeout take reference of that particular setTimeout function which we want to stop
+    document.querySelector('#stop').addEventListener('click',()=>{
+        clearTimeout(changeMe)
+        console.log('stopped');
+        
+    })
+    
+</script>
+</html>

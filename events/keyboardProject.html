@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        #insert{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            width: 80vw;
+            margin: 0 auto;
+            height: 80vh;
+        }
+        .key{
+            font-size: larger;
+            font-weight: bold;
+        }
+        /* Styling for the table */
+        .table {
+            margin: 20px;
+            font-family: Arial, sans-serif;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: #333;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Keyboard Press</h1>
+    <div id="insert">
+        <div class="key">
+            Press any key
+        </div>
+    </div>
+</body>
+<script>
+    const insert = document.querySelector('#insert');
+    window.addEventListener('keydown',(e)=>{
+        insert.innerHTML = `
+        <div class = "table">
+            <table>
+            <tr>
+                <th>Key</th>
+                <th>Key code</th>
+                <th>Code</th>
+            </tr>
+            <tr>
+                <td>${e.key}</td>
+                <td>${e.keyCode}</td>
+                <td>${e.code}</td>
+            </tr>           
+            </table>
+        </div>
+        `
+    })
+</script>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random color generator</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            width: 80vw;
+            margin: 0 auto;
+            height: 80vh;
+        }
+        #color_code{
+            font-size: 2rem;
+            font-weight: bold;
+            border: 1px solid black;
+            padding: 10px;
+            cursor: pointer;
+            display: none;
+        }
+        #color_code:active{
+            transform: scale(1.1); 
+        }
+        button{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random Color generator</h1>
+    <div class="container">
+        <button id="start" title="start">Start</button>
+        <button id="stop">stop</button>
+        <p id="color_code" title="copy"></p>
+
+    </div>
+    
+</body>
+<script>
+    // Random color generator
+    let colorId = document.querySelector('#color_code');
+
+    let randomColor = function(){
+        const hex = '0123456789ABCDEF';
+        let color = '#';
+        for(let i=0;i<6;i++){
+            color += hex[Math.floor(Math.random()*16)];
+        }
+        return color;
+    }
+    let intervalId;
+    const start = document.querySelector('#start').addEventListener('click',()=>{
+        console.log("start button clicked");
+        colorId.style.display = 'block';
+        if(!intervalId){
+            intervalId = setInterval(()=>{
+                let color = randomColor();
+                document.querySelector('.container').style.backgroundColor = color;
+                colorId.innerHTML = color;
+            },1500)
+        }  
+    })
+    const stop = document.querySelector('#stop').addEventListener('click',()=>{
+        console.log("stop button clicked");
+        if(intervalId){
+            clearInterval(intervalId)
+            intervalId = null;
+        }
+        
+    })
+
+    // Copy color code to clipboard on paragraph click
+    colorId.addEventListener('click',()=>{
+        const colorCode = colorId.innerHTML;
+        navigator.clipboard.writeText(colorCode).then(()=>{
+            console.log(`${colorCode} Color code copied to clipboard`);  
+        }).catch((err)=>{
+            console.error('Failed to copy: ',err);
+        })
+    })
+
+</script>
+</html>

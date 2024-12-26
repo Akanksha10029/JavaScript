@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API req</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const api = 'https://api.github.com/users/Akanksha10029'
+    const xhr = new XMLHttpRequest()
+    console.log(xhr.readyState);
+    xhr.open('GET',api)
+    xhr.onreadystatechange = function(){
+        console.log(xhr.readyState);
+        if(xhr.readyState===4){
+            const data = JSON.parse(xhr.responseText)
+            console.log(typeof data);
+            console.log(data.followers);
+        } 
+    }
+    xhr.send()
+      console.log(xhr.readyState);
+</script>
+</html>

@@ -20,8 +20,8 @@ createUser.prototype.PrintMessage = function(){
 }
 
 const user1 = new createUser('Prashant',100)
-console.log(user1.PrintMessage());
-console.log(user1.increaseScore());
+console.log(user1.PrintMessage()); // Hello Prashant, your score is 100
+console.log(user1.increaseScore()); // 101
 
 
 /*
@@ -36,4 +36,4 @@ The constructor is called: The constructor function is called with the specified
 
 The new object is returned: After the constructor function has been called, if it doesn't return a non-primitive value (object, array, function, etc.), the newly created object is returned.
 
-*/
+*/ 

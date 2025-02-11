@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lexical and closure</title>
+</head>
+<body style="background-color: #313131;">
+    <button id="orange" style="cursor: pointer;">orange</button>
+    <button id="green" style="cursor: pointer;">green</button>
+    
+</body>
+<script>
+    // Closure
+    function outer(){
+        let userName = "Akanksha";
+        function inner(){
+            console.log("inner",userName);
+        }
+        inner();
+    }
+    outer();
+</script>
+<script>
+    // document.getElementById("orange").addEventListener("click", function(){
+    //     document.body.style.backgroundColor = "orange";
+    // })
+    // document.getElementById("green").addEventListener("click", function(){
+    //     document.body.style.backgroundColor = "green";
+    // })
+
+    function changeColor(color){
+        return function(){
+            document.body.style.backgroundColor = color;
+        }
+    }
+    document.getElementById("orange").addEventListener("click", changeColor("orange"));
+    document.getElementById("green").addEventListener("click", changeColor("green"));
+
+</script>
+</html>
